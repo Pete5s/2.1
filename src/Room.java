@@ -1,21 +1,20 @@
 public class Room {
+    private final int number;
+    private final int beds;
+    private final boolean hasBalcony;
+    private final boolean seaView;
+    private final int pricePerNight;
 
-    private int roomNumber;
-    private int beds;
-    private boolean hasBalcony;
-    private boolean seaView;
-    private int pricePerNight;
-
-    public Room(int roomNumber, int beds, boolean hasBalcony, boolean seaView, int pricePerNight) {
-        this.roomNumber = roomNumber;
+    public Room(int number, int beds, boolean hasBalcony, boolean seaView, int pricePerNight) {
+        this.number = number;
         this.beds = beds;
         this.hasBalcony = hasBalcony;
         this.seaView = seaView;
         this.pricePerNight = pricePerNight;
     }
 
-    public int getRoomNumber() {
-        return roomNumber;
+    public int getNumber() {
+        return number;
     }
 
     public int getBeds() {
@@ -34,8 +33,9 @@ public class Room {
         return pricePerNight;
     }
 
-    public String getDescription() {
-        return String.format("Pokoj číslo %d: %d lůžko/lůžka, balkon: %s, výhled na moře: %s, cena: %d Kč/noc",
-                roomNumber, beds, hasBalcony ? "ano" : "ne", seaView ? "ano" : "ne", pricePerNight);
+    @Override
+    public String toString() {
+        return String.format("Pokoj číslo %d (%d lůžek, %sbalkón, %svýhled na moře, %d Kč/noc)",
+                number, beds, hasBalcony ? "" : "bez ", seaView ? "" : "bez ", pricePerNight);
     }
 }
